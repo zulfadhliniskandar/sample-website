@@ -1,0 +1,545 @@
+/* --- Global Styles --- */
+:root {
+    --primary-blue: #0A1931; /* Warna biru gelap NSSB */
+    --secondary-blue: #1C2E4A; /* Warna biru cerikit lebih terang */
+    --primary-orange: #FF6600; /* Warna jingga NSSB */
+    --text-color: #333333;
+    --light-gray: #F8F9FA;
+    --border-color: #E0E0E0;
+    --font-family: 'Roboto', sans-serif;
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: var(--font-family);
+    color: var(--text-color);
+    line-height: 1.6;
+    background-color: #FFFFFF;
+}
+
+.container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 20px;
+}
+
+section {
+    padding: 80px 0;
+}
+
+a {
+    text-decoration: none;
+    transition: 0.3s ease;
+    color: inherit;
+}
+
+img {
+    max-width: 100%;
+    height: auto;
+}
+
+/* --- Utilities --- */
+.section-title {
+    text-align: center;
+    margin-bottom: 60px;
+}
+
+.section-title h2 {
+    font-size: 32px;
+    color: var(--primary-blue);
+    font-weight: bold;
+    margin-bottom: 20px;
+}
+
+.section-title p {
+    color: #666666;
+    max-width: 700px;
+    margin: 0 auto;
+}
+
+.text-white .section-title h2,
+.text-white .section-title p {
+    color: #FFFFFF;
+}
+
+.btn-primary {
+    background-color: var(--primary-orange);
+    color: #FFFFFF;
+    padding: 12px 30px;
+    border-radius: 5px;
+    border: none;
+    font-size: 16px;
+    font-weight: bold;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+.btn-primary:hover {
+    background-color: #E65C00;
+}
+
+/* --- Header & Nav --- */
+.main-header {
+    background-color: var(--primary-blue);
+    position: fixed; /* Menjadikan header melekat */
+    top: 0;
+    left: 0;
+    width: 100%;
+    z-index: 1000;
+    color: #FFFFFF;
+    box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+}
+
+.header-container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding-top: 15px;
+    padding-bottom: 15px;
+}
+
+.logo {
+    font-size: 24px;
+    font-weight: bold;
+}
+
+.logo .sdn-bhd {
+    color: var(--primary-orange);
+}
+
+.main-nav ul {
+    list-style: none;
+    display: flex;
+    gap: 25px;
+    align-items: center;
+}
+
+.main-nav a {
+    font-size: 16px;
+    font-weight: 500;
+}
+
+.main-nav a:not(.btn-quote):hover {
+    color: var(--primary-orange);
+}
+
+.btn-quote {
+    background-color: #FFFFFF;
+    color: var(--primary-blue);
+    padding: 10px 20px;
+    border-radius: 5px;
+    font-weight: bold;
+}
+
+.btn-quote:hover {
+    background-color: var(--primary-orange);
+    color: #FFFFFF;
+}
+
+/* --- Hero Section --- */
+.hero-section {
+    background-image: linear-gradient(rgba(10, 25, 49, 0.8), rgba(10, 25, 49, 0.8)), url('https://via.placeholder.com/1920x1080.png?text=Construction+Site');
+    background-size: cover;
+    background-position: center;
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    position: relative;
+    padding-top: 100px; /* offset for sticky nav */
+}
+
+.hero-content {
+    color: #FFFFFF;
+    max-width: 800px;
+}
+
+.hero-content h1 {
+    font-size: 48px;
+    font-weight: bold;
+    margin-bottom: 25px;
+}
+
+.hero-content p {
+    font-size: 18px;
+    margin-bottom: 40px;
+}
+
+.scroll-icon {
+    position: absolute;
+    bottom: 30px;
+    font-size: 24px;
+    color: #FFFFFF;
+    animation: bounce 2s infinite;
+}
+
+@keyframes bounce {
+    0%, 20%, 50%, 80%, 100% {transform: translateY(0);}
+    40% {transform: translateY(-10px);}
+    60% {transform: translateY(-5px);}
+}
+
+/* --- About Us Section --- */
+.about-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 30px;
+}
+
+.about-card {
+    background-color: #FFFFFF;
+    border: 1px solid var(--border-color);
+    padding: 40px;
+    text-align: center;
+    border-radius: 8px;
+    box-shadow: 0 4px 10px rgba(0,0,0,0.03);
+}
+
+.about-card i {
+    font-size: 32px;
+    margin-bottom: 25px;
+}
+
+.icon-orange {
+    color: var(--primary-orange);
+}
+
+.icon-blue {
+    color: var(--primary-blue);
+}
+
+.about-card h3 {
+    font-size: 28px;
+    color: var(--primary-blue);
+    font-weight: bold;
+    margin-bottom: 10px;
+}
+
+.about-card p {
+    color: #666666;
+    font-size: 14px;
+}
+
+/* --- Services Section --- */
+.services-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 30px;
+}
+
+.service-card {
+    background-color: #FFFFFF;
+    border: 1px solid var(--border-color);
+    border-top: 4px solid var(--primary-orange);
+    padding: 30px;
+    border-radius: 8px;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.service-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 10px 20px rgba(0,0,0,0.08);
+}
+
+.service-icon-box {
+    background-color: var(--secondary-blue);
+    color: var(--primary-orange);
+    width: 50px;
+    height: 50px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 24px;
+    border-radius: 8px;
+    margin-bottom: 25px;
+}
+
+.service-card h3 {
+    font-size: 20px;
+    color: var(--primary-blue);
+    font-weight: bold;
+    margin-bottom: 15px;
+}
+
+.service-card p {
+    color: #666666;
+    font-size: 14px;
+}
+
+/* --- Projects Section --- */
+.projects-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 20px;
+}
+
+.projects-grid img {
+    border-radius: 10px;
+    transition: 0.3s ease;
+}
+
+.projects-grid img:hover {
+    opacity: 0.8;
+}
+
+/* --- Why Choose Us Section --- */
+/* --- Why Choose Us Section --- */
+.why-choose-us-section {
+    background-color: var(--secondary-blue); /* Ini warna latar belakang biru gelap yang memenuhkan skrin */
+    padding: 80px 0;
+    width: 100%;
+}
+
+.why-choose-us-section .section-title h2,
+.why-choose-us-section .section-title p {
+    color: #FFFFFF;
+}
+
+.why-choose-grid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 30px;
+}
+
+.why-choose-box {
+    background-color: var(--primary-blue); /* Ini warna kotak dalam yang lebih gelap sedikit */
+    padding: 30px;
+    border-radius: 10px;
+    display: flex;
+    gap: 20px;
+    align-items: flex-start;
+}
+/* --- Get a Free Quote Section --- */
+.get-quote-layout {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 50px;
+    align-items: center;
+}
+
+.contact-info {
+    display: flex;
+    flex-direction: column;
+    gap: 25px;
+}
+
+.contact-card {
+    background-color: #FFFFFF;
+    border: 1px solid var(--border-color);
+    padding: 25px;
+    border-radius: 8px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+    position: relative;
+    padding-left: 70px; /* to offset icon */
+}
+
+.contact-card i {
+    font-size: 24px;
+    color: var(--primary-orange);
+    position: absolute;
+    left: 25px;
+    top: 50%;
+    transform: translateY(-50%);
+}
+
+.contact-card h4 {
+    font-size: 16px;
+    font-weight: bold;
+    color: var(--primary-blue);
+    margin-bottom: 5px;
+    align-self: flex-start;
+}
+
+.contact-card p {
+    font-size: 14px;
+    color: #666666;
+    align-self: flex-start;
+}
+
+.quote-form form {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+}
+
+.form-group {
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+}
+
+.form-group label {
+    font-size: 14px;
+    font-weight: 500;
+    color: var(--primary-blue);
+}
+
+.form-group input,
+.form-group textarea {
+    padding: 12px 15px;
+    border: 1px solid var(--border-color);
+    border-radius: 5px;
+    background-color: var(--light-gray);
+    font-size: 14px;
+}
+
+.form-group textarea {
+    resize: none;
+}
+
+/* --- Footer --- */
+.main-footer {
+    background-color: var(--primary-blue);
+    color: #E0E0E0;
+    padding: 80px 0 20px 0;
+}
+
+.footer-content {
+    display: grid;
+    grid-template-columns: 2fr 1fr 1fr;
+    gap: 50px;
+    margin-bottom: 60px;
+}
+
+.brand-column p {
+    font-size: 14px;
+    margin: 20px 0;
+}
+
+.social-icons {
+    display: flex;
+    gap: 15px;
+}
+
+.social-icons a {
+    font-size: 18px;
+    color: #A0A0A0;
+}
+
+.social-icons a:hover {
+    color: var(--primary-orange);
+}
+
+.links-column h4 {
+    color: #FFFFFF;
+    font-size: 18px;
+    font-weight: bold;
+    margin-bottom: 25px;
+}
+
+.links-column ul {
+    list-style: none;
+}
+
+.links-column li {
+    margin-bottom: 12px;
+}
+
+.links-column a {
+    font-size: 14px;
+}
+
+.links-column a:hover {
+    color: var(--primary-orange);
+}
+
+.footer-bottom {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding-top: 30px;
+    border-top: 1px solid #2A3A5A;
+}
+
+.copyright {
+    font-size: 14px;
+    margin: auto;
+}
+
+/* --- Responsive Designs --- */
+@media (max-width: 992px) {
+    .container {
+        padding: 20px;
+    }
+
+    .header-container {
+        flex-direction: column;
+        gap: 15px;
+        text-align: center;
+    }
+
+    .hero-content h1 {
+        font-size: 36px;
+    }
+
+    .about-grid, .projects-grid {
+        grid-template-columns: repeat(2, 1fr);
+    }
+
+    .get-quote-layout, .footer-content {
+        grid-template-columns: 1fr;
+    }
+}
+
+@media (max-width: 768px) {
+    section {
+        padding: 60px 0;
+    }
+
+    .main-nav ul {
+        flex-wrap: wrap;
+        justify-content: center;
+        gap: 15px;
+    }
+
+    .hero-content h1 {
+        font-size: 28px;
+    }
+
+    .about-grid, .projects-grid, .why-choose-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .contact-card {
+        padding-left: 25px;
+        text-align: center;
+    }
+
+    .contact-card i {
+        position: relative;
+        left: 0;
+        top: 0;
+        transform: translateY(0);
+        margin-bottom: 10px;
+    }
+
+    .contact-card h4, .contact-card p {
+        align-self: center;
+    }
+
+    .footer-bottom {
+        flex-direction: column;
+        gap: 15px;
+        text-align: center;
+    }
+
+    .footer-legal a {
+        margin: 0 10px;
+    }
+}
+.why-choose-box h3 {
+    color: #FFFFFF !important; /* Warna putih untuk tajuk */
+}
+
+.why-choose-box p {
+    color: #E0E0E0 !important; /* Warna kelabu cerah untuk huraian */
+}
